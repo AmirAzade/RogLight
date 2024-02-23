@@ -2,7 +2,7 @@
 
 <h1 align="center">
   <br>
-  <img src=".imgs/roglight.jpeg" alt="RogLight">
+  <img style = "width:70%;" src=".imgs/roglight.jpeg" alt="RogLight">
 </h1>
 
 ### Installation On Ubuntu
@@ -15,5 +15,5 @@ $ python3 app.py
 ```
 then open http://127.0.0.1:5000 on your browser
 
-###Notice
+### Notice
 You need to install <a href = "https://github.com/wroberts/rogauracore"> rogauracore </a> first
