@@ -1,8 +1,8 @@
 # RogLight
 
-RogLight can manage the keyboard backlight color of your Asus ROG laptop.
+RogLight can manage the keyboard backlight color of your Asus ROG laptop on Linux linux distributions.
 <br>
-RogLight is based on <a href = "https://github.com/wroberts/rogauracore"> rogauracore </a> but includes a user interface for easier use.
+RogLight is based on <a target = "_blank" href = "https://github.com/wroberts/rogauracore"> rogauracore </a> but includes a user interface for easier use.
 
 <h1 align="center">
   <br>
@@ -20,4 +20,4 @@ $ python3 app.py
 then open http://127.0.0.1:5000 on your browser
 
 ### Notice
-You need to install <a href = "https://github.com/wroberts/rogauracore"> rogauracore </a> first
+You need to install <a target = "_blank" href = "https://github.com/wroberts/rogauracore"> rogauracore </a> first
