@@ -1,6 +1,7 @@
 # RogLight
 
 RogLight can manage the keyboard backlight color of your Asus ROG laptop.
+<br>
 RogLight is based on <a href = "https://github.com/wroberts/rogauracore"> rogauracore </a> but includes a user interface for easier use.
 
 <h1 align="center">
