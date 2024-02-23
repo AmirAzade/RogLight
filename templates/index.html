@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Button Clicker</title>
+    <style>
+        body {
+            background-color: #0826B5;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: white;
+        }
+
+        h1 {
+            color: white;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        input[type="color"] {
+            margin: 10px;
+        }
+
+        h2 {
+            color: white;
+        }
+
+        .radio-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        input[type="radio"] {
+            margin: 5px;
+            display: none;
+        }
+
+        .radio-label {
+            position: relative;
+            padding-left: 30px;
+            cursor: pointer;
+        }
+
+        .custom-radio {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 18px;
+            width: 18px;
+            background-color: #4CAF50;
+            border-radius: 50%;
+        }
+
+        .custom-radio:after {
+            content: '';
+            position: absolute;
+            display: none;
+        }
+
+        input[type="radio"]:checked+.custom-radio:after {
+            display: block;
+            top: 4px;
+            left: 4px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: white;
+        }
+    </style>
+</head>
+
+<body bgcolor="#0826B5">
+    <h1>Select color:</h1>
+    <button onclick="buttonClick(0)">power off</button>
+    <br><br>
+    <button onclick="buttonClick(1)">red</button>
+    <button onclick="buttonClick(2)">green</button>
+    <button onclick="buttonClick(3)">blue</button>
+    <button onclick="buttonClick(4)">yellow</button>
+    <button onclick="buttonClick(5)">gold</button>
+    <button onclick="buttonClick(6)">cyan</button>
+    <button onclick="buttonClick(7)">magenta</button>
+    <button onclick="buttonClick(8)">rainbow</button>
+    <button onclick="buttonClick(9)">white</button>
+    <input type="color" id="colorPicker" onchange="colorSelected()">
+
+    <h2>Select a brightness level:</h2>
+    <div class="radio-container">
+        <label class="radio-label">
+            <input type="radio" name="option" value="1" onchange="radioSelected(1)">
+            <span class="custom-radio"></span> Level 1
+        </label>
+        <label class="radio-label">
+            <input type="radio" name="option" value="2" onchange="radioSelected(2)">
+            <span class="custom-radio"></span> Level 2
+        </label>
+        <label class="radio-label">
+            <input type="radio" name="option" value="3" onchange="radioSelected(3)">
+            <span class="custom-radio"></span> Level 3
+        </label>
+    </div>
+
+
+    <script>
+        function buttonClick(buttonId) {
+            fetch(`/button/${buttonId}`)
+                .then(response => response.text());
+        }
+        function radioSelected(optionNumber) {
+            fetch(`/radio/${optionNumber}`)
+                .then(response => response.text());
+        }
+
+        function colorSelected() {
+            const color = document.getElementById('colorPicker').value;
+            fetch('/color', {
+                method: 'POST',
+                body: new URLSearchParams({ 'color': color }),
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+            })
+                .then(response => response.text());
+        }
+    </script>
+</body>
+
+</html>
