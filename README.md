@@ -10,6 +10,10 @@
 ```bash
 $ git clone https://github.com/AmirAzade/RogLight
 $ cd RogLight
-$ sudo python3 -m pip install -r requirements.txt
-$ sudo python3 app.py
+$ python3 -m pip install -r requirements.txt
+$ python3 app.py
 ```
+then open http://127.0.0.1:5000 on your browser
+
+###Notice
+You need to install <a href = "https://github.com/wroberts/rogauracore"> rogauracore </a> first
