@@ -2,6 +2,9 @@
 <html>
 
 <head>
+    <link rel="icon" type="image/png" href="{{url_for('static', filename='roglightCircle.png')}}">
+
+
     <title>Rog Light</title>
     <meta charset="UTF-8">
     <style>
@@ -530,7 +533,7 @@
             border-radius: 12px;
         }
 
-        
+
 
         .slider2 {
             -webkit-appearance: none;
@@ -644,7 +647,13 @@
 </head>
 
 <body>
-    <h1>Rog Light</h1>
+    <h1>
+        <img src="{{url_for('static', filename='roglightCircle.png')}}" style="width: 30px;">
+        Rog Light
+        <img src="{{url_for('static', filename='roglightCircle.png')}}" style="width: 30px;">
+
+    </h1>
+
     <label class="switch" onclick="buttonClick(0)">
         <input type="checkbox" checked>
         <span class="slider round"></span>
@@ -726,12 +735,12 @@
                             color4:
                             <input type="color" id="colorPicker" onchange="colorSelected()">
 
-                            <div class="slidecontainer">
-                                <p>
-                                    Speed: 
-                                    <input type="range" min="0" max="3" value="0" step="1" class="slider1" id="myRange">
-                                </p>
-                            </div>
+                        <div class="slidecontainer">
+                            <p>
+                                Speed:
+                                <input type="range" min="0" max="3" value="0" step="1" class="slider1" id="myRange">
+                            </p>
+                        </div>
                         </p>
 
 
@@ -741,24 +750,24 @@
                     <div class="item" id="content-3">
                         <h2 class="tab-title tab-default">Color Cycle</h2>
                         <p>
-                            <div class="slidecontainer">
-                                <p>
-                                    Speed: 
-                                    <input type="range" min="0" max="3" value="0" step="1" class="slider2" id="myRange">
-                                </p>
-                            </div>
+                        <div class="slidecontainer">
+                            <p>
+                                Speed:
+                                <input type="range" min="0" max="3" value="0" step="1" class="slider2" id="myRange">
+                            </p>
+                        </div>
                         </p>
                     </div>
 
                     <div class="item" id="content-4">
                         <h2 class="tab-title tab-warning">Rainbow</h2>
                         <p>
-                            <div class="slidecontainer">
-                                <p>
-                                    Speed: 
-                                    <input type="range" min="0" max="3" value="0" step="1" class="slider3" id="myRange">
-                                </p>
-                            </div>
+                        <div class="slidecontainer">
+                            <p>
+                                Speed:
+                                <input type="range" min="0" max="3" value="0" step="1" class="slider3" id="myRange">
+                            </p>
+                        </div>
                         </p>
                     </div>
 
