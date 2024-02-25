@@ -14,22 +14,28 @@
             height: 100%;
 
             background-image: linear-gradient(45deg, red, blue);
+            user-select: none;
         }
 
         h1 {
             color: white;
         }
 
-        button {
-            background-color: #4CAF50;
+        .mainButtons {
+            background: linear-gradient(135deg,
+                    hsl(202deg 100% 75%),
+                    hsl(205deg 100% 64%),
+                    hsl(230deg 100% 75%),
+                    hsl(270deg 100% 72%));
             color: white;
             padding: 10px 20px;
             border: none;
             cursor: pointer;
             margin: 5px;
+            border-radius: 7px;
         }
 
-        button:hover {
+        .mainButtons:hover {
             background-color: #45a049;
         }
 
@@ -224,10 +230,10 @@
         }
 
         .tabs input {
-            position: absolute;
+            /* position: absolute;
             opacity: 0;
             margin: 0;
-            padding: 0;
+            padding: 0; */
         }
 
         .tabs input+label:hover {
@@ -311,7 +317,7 @@
             margin: 0px auto;
             text-align: left;
             line-height: 20px;
-            height: 240px;
+            height: 500px;
             border-radius: 5px;
             box-shadow: 0 2px 3px rgb(10 10 10 / 10%), 0 0 0 1px rgb(10 10 10 / 10%);
             display: block;
@@ -393,7 +399,7 @@
             background: linear-gradient(70deg, #c51574, #97389b);
         }
 
-        .tabs input {
+        .tabs input:not([type="color"], [type="range"]) {
             position: relative;
             opacity: 0;
             margin: auto !important;
@@ -474,6 +480,163 @@
             color: aliceblue;
             text-shadow: 0.5pt 0.5pt 0.5pt #2d3748;
         }
+
+
+
+
+
+
+
+
+
+
+
+
+        .slidecontainer {
+            width: 250px;
+        }
+
+        .slider1 {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 15px;
+            background: #d3d3d3;
+            outline: none;
+            opacity: 0.9;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+            border-radius: 12px;
+        }
+
+        .slider1:hover {
+            opacity: 1;
+        }
+
+        .slider1::-webkit-slider1-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            background: #04AA6D;
+            cursor: pointer;
+
+        }
+
+        .slider1::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            background: linear-gradient(10deg, #02ce85, #02ceab);
+            cursor: pointer;
+            border-radius: 12px;
+        }
+
+        
+
+        .slider2 {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 15px;
+            background: #d3d3d3;
+            outline: none;
+            opacity: 0.9;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+            border-radius: 12px;
+        }
+
+        .slider2:hover {
+            opacity: 1;
+        }
+
+        .slider2::-webkit-slider2-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            background: #04AA6D;
+            cursor: pointer;
+
+        }
+
+        .slider2::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            background: linear-gradient(10deg, #f7ec9c, #ff8651);
+            cursor: pointer;
+            border-radius: 12px;
+        }
+
+
+
+        .slider3 {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 15px;
+            background: #d3d3d3;
+            outline: none;
+            opacity: 0.9;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+            border-radius: 12px;
+        }
+
+        .slider3:hover {
+            opacity: 1;
+        }
+
+        .slider3::-webkit-slider3-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            background: #04AA6D;
+            cursor: pointer;
+
+        }
+
+        .slider3::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            background: linear-gradient(70deg, #c51574, #97389b);
+            cursor: pointer;
+            border-radius: 12px;
+        }
+
+
+
+        .slider4 {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 15px;
+            background: #d3d3d3;
+            outline: none;
+            opacity: 0.9;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+            border-radius: 12px;
+        }
+
+        .slider4:hover {
+            opacity: 1;
+        }
+
+        .slider4::-webkit-slider4-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            background: #04AA6D;
+            cursor: pointer;
+
+        }
+
+        .slider4::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            background: linear-gradient(10deg, #02ce85, #02ceab);
+            cursor: pointer;
+            border-radius: 12px;
+        }
     </style>
     <link
         href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital@0;1&family=Playfair+Display+SC:wght@900&family=Playfair+Display:ital,wght@0,800;1,800&family=Manrope:wght@800&display=swap"
@@ -491,57 +654,111 @@
         <div class="container">
             <div class="card tabs">
                 <input id="tab-1" type="radio" class="tab tab-selector" checked="checked" name="tab" />
-                <label for="tab-1" class="tab tab-primary">Product</label>
+                <label for="tab-1" class="tab tab-primary">Static</label>
                 <input id="tab-2" type="radio" class="tab tab-selector" name="tab" />
-                <label for="tab-2" class="tab tab-success">Options</label>
+                <label for="tab-2" class="tab tab-success">Breathing</label>
                 <input id="tab-3" type="radio" class="tab tab-selector" name="tab" />
-                <label for="tab-3" class="tab tab-default">Shipping</label>
+                <label for="tab-3" class="tab tab-default">Color Cycle</label>
                 <input id="tab-4" type="radio" class="tab tab-selector" name="tab" />
-                <label for="tab-4" class="tab tab-warning">Published</label>
+                <label for="tab-4" class="tab tab-warning">Rainbow</label>
                 <div class="tabsShadow"></div>
                 <div class="glider"></div>
 
                 <section class="content">
 
                     <div class="item" id="content-1">
-                        <h2 class="tab-title tab-primary">Sweep + Slide Dog Toy</h2>
+                        <h2 class="tab-title tab-primary">Single</h2>
                         <p>
-                            <span class="numit">1</span> The Sweep + Slide is an indoor dog toy with a sleek base
-                            designed to glide
-                            across any floor. Not only does this toy stimulate your dog's natural chase instincts, but
-                            it also sweeps
-                            away floor dust and grime with a replaceable sweeper bottom cover.
+                            <!-- <button class="mainButtons" onclick="buttonClick(1)">red</button>
+                            <button class="mainButtons" onclick="buttonClick(2)">green</button>
+                            <button class="mainButtons" onclick="buttonClick(3)">blue</button>
+                            <button class="mainButtons" onclick="buttonClick(4)">yellow</button>
+                            <button class="mainButtons" onclick="buttonClick(5)">gold</button>
+                            <button class="mainButtons" onclick="buttonClick(6)">cyan</button>
+                            <button class="mainButtons" onclick="buttonClick(7)">magenta</button>
+                            <button class="mainButtons" onclick="buttonClick(8)">rainbow</button>
+                            <button class="mainButtons" onclick="buttonClick(9)">white</button> -->
+                            single color:
+                            <input type="color" id="colorPicker" onchange="colorSelected()">
+                        </p>
+
+                        <br><br>
+
+                        <h2 class="tab-title tab-primary">Multi</h2>
+                        <p>
+                            <!-- <button class="mainButtons" onclick="buttonClick(1)">red</button>
+                            <button class="mainButtons" onclick="buttonClick(2)">green</button>
+                            <button class="mainButtons" onclick="buttonClick(3)">blue</button>
+                            <button class="mainButtons" onclick="buttonClick(4)">yellow</button>
+                            <button class="mainButtons" onclick="buttonClick(5)">gold</button>
+                            <button class="mainButtons" onclick="buttonClick(6)">cyan</button>
+                            <button class="mainButtons" onclick="buttonClick(7)">magenta</button>
+                            <button class="mainButtons" onclick="buttonClick(8)">rainbow</button>
+                            <button class="mainButtons" onclick="buttonClick(9)">white</button> -->
+                            color1:
+                            <input type="color" id="colorPicker" onchange="colorSelected()">
+                            color2:
+                            <input type="color" id="colorPicker" onchange="colorSelected()">
+                            color3:
+                            <input type="color" id="colorPicker" onchange="colorSelected()">
+                            color4:
+                            <input type="color" id="colorPicker" onchange="colorSelected()">
                         </p>
                     </div>
 
                     <div class="item" id="content-2">
-                        <h2 class="tab-title tab-success">Tab 2</h2>
+                        <h2 class="tab-title tab-success">Single</h2>
                         <p>
-                            <span class="numit">2</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                            eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                            exercitation
-                            ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                            single color:
+                            <input type="color" id="colorPicker" onchange="colorSelected()">
                         </p>
+
+                        <br><br>
+
+                        <h2 class="tab-title tab-success">Multi</h2>
+                        <p>
+                            color1:
+                            <input type="color" id="colorPicker" onchange="colorSelected()">
+                            color2:
+                            <input type="color" id="colorPicker" onchange="colorSelected()">
+                            color3:
+                            <input type="color" id="colorPicker" onchange="colorSelected()">
+                            color4:
+                            <input type="color" id="colorPicker" onchange="colorSelected()">
+
+                            <div class="slidecontainer">
+                                <p>
+                                    Speed: 
+                                    <input type="range" min="0" max="3" value="0" step="1" class="slider1" id="myRange">
+                                </p>
+                            </div>
+                        </p>
+
+
+
                     </div>
 
                     <div class="item" id="content-3">
-                        <h2 class="tab-title tab-default">Tab 3</h2>
+                        <h2 class="tab-title tab-default">Color Cycle</h2>
                         <p>
-                            <span class="numit">3</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                            eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                            exercitation
-                            ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+                            <div class="slidecontainer">
+                                <p>
+                                    Speed: 
+                                    <input type="range" min="0" max="3" value="0" step="1" class="slider2" id="myRange">
+                                </p>
+                            </div>
                         </p>
                     </div>
 
                     <div class="item" id="content-4">
-                        <h2 class="tab-title tab-warning">Tab 4</h2>
+                        <h2 class="tab-title tab-warning">Rainbow</h2>
                         <p>
-                            <span class="numit">4</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                            eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua.
+                            <div class="slidecontainer">
+                                <p>
+                                    Speed: 
+                                    <input type="range" min="0" max="3" value="0" step="1" class="slider3" id="myRange">
+                                </p>
+                            </div>
                         </p>
                     </div>
 
@@ -561,7 +778,6 @@
     <button onclick="buttonClick(7)">magenta</button>
     <button onclick="buttonClick(8)">rainbow</button>
     <button onclick="buttonClick(9)">white</button>
-    <input type="color" id="colorPicker" onchange="colorSelected()">
 
     <h2>Select a brightness level:</h2>
     <div class="radio-container">
