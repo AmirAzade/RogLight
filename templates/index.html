@@ -688,7 +688,7 @@
                             <button class="mainButtons" onclick="buttonClick(8)">rainbow</button>
                             <button class="mainButtons" onclick="buttonClick(9)">white</button> -->
                             single color:
-                            <input type="color" id="colorPicker" onchange="colorSelected()">
+                            <input type="color" id="single_static_color_picker" onchange="single_static_color_selected()">
                         </p>
 
                         <br><br>
@@ -705,13 +705,13 @@
                             <button class="mainButtons" onclick="buttonClick(8)">rainbow</button>
                             <button class="mainButtons" onclick="buttonClick(9)">white</button> -->
                             color1:
-                            <input type="color" id="colorPicker" onchange="colorSelected()">
+                            <input type="color" id="multi_static_color_picker1" onchange="multi_static_color_selected()">
                             color2:
-                            <input type="color" id="colorPicker" onchange="colorSelected()">
+                            <input type="color" id="multi_static_color_picker2" onchange="multi_static_color_selected()">
                             color3:
-                            <input type="color" id="colorPicker" onchange="colorSelected()">
+                            <input type="color" id="multi_static_color_picker3" onchange="multi_static_color_selected()">
                             color4:
-                            <input type="color" id="colorPicker" onchange="colorSelected()">
+                            <input type="color" id="multi_static_color_picker4" onchange="multi_static_color_selected()">
                         </p>
                     </div>
 
@@ -719,7 +719,13 @@
                         <h2 class="tab-title tab-success">Single</h2>
                         <p>
                             single color:
-                            <input type="color" id="colorPicker" onchange="colorSelected()">
+                            <input type="color" id="colorPicker" onchange="single_breath_color_selected()">
+                            <div class="slidecontainer">
+                                <p>
+                                    Speed:
+                                    <input type="range" min="0" max="3" value="0" step="1" class="slider1" id="myRange" onchange="single_breath_speed()">
+                                </p>
+                            </div>
                         </p>
 
                         <br><br>
@@ -727,20 +733,20 @@
                         <h2 class="tab-title tab-success">Multi</h2>
                         <p>
                             color1:
-                            <input type="color" id="colorPicker" onchange="colorSelected()">
+                            <input type="color" id="colorPicker" onchange="multi_breath_color_selected()">
                             color2:
-                            <input type="color" id="colorPicker" onchange="colorSelected()">
+                            <input type="color" id="colorPicker" onchange="multi_breath_color_selected()">
                             color3:
-                            <input type="color" id="colorPicker" onchange="colorSelected()">
+                            <input type="color" id="colorPicker" onchange="multi_breath_color_selected()">
                             color4:
-                            <input type="color" id="colorPicker" onchange="colorSelected()">
+                            <input type="color" id="colorPicker" onchange="multi_breath_color_selected()">
 
-                        <div class="slidecontainer">
-                            <p>
-                                Speed:
-                                <input type="range" min="0" max="3" value="0" step="1" class="slider1" id="myRange">
-                            </p>
-                        </div>
+                            <div class="slidecontainer">
+                                <p>
+                                    Speed:
+                                    <input type="range" min="0" max="3" value="0" step="1" class="slider1" id="myRange" onchange="multi_breath_speed()">
+                                </p>
+                            </div>
                         </p>
 
 
@@ -753,7 +759,7 @@
                         <div class="slidecontainer">
                             <p>
                                 Speed:
-                                <input type="range" min="0" max="3" value="0" step="1" class="slider2" id="myRange">
+                                <input type="range" min="0" max="3" value="0" step="1" class="slider2" id="myRange" onchange="color_cycle_speed()">
                             </p>
                         </div>
                         </p>
@@ -765,7 +771,7 @@
                         <div class="slidecontainer">
                             <p>
                                 Speed:
-                                <input type="range" min="0" max="3" value="0" step="1" class="slider3" id="myRange">
+                                <input type="range" min="0" max="3" value="0" step="1" class="slider3" id="myRange" onchange="rainbow_speed()">
                             </p>
                         </div>
                         </p>
@@ -806,6 +812,10 @@
 
 
     <script>
+
+        function single_static_color_selected() {
+
+        }
         function buttonClick(buttonId) {
             fetch(`/button/${buttonId}`)
                 .then(response => response.text());
@@ -815,9 +825,9 @@
                 .then(response => response.text());
         }
 
-        function colorSelected() {
-            const color = document.getElementById('colorPicker').value;
-            fetch('/color', {
+        function single_static_color_selected() {
+            const color = document.getElementById('single_static_color_picker').value;
+            fetch('/single_static_color_selected', {
                 method: 'POST',
                 body: new URLSearchParams({ 'color': color }),
                 headers: {
@@ -826,6 +836,23 @@
             })
                 .then(response => response.text());
         }
+
+        function multi_static_color_selected() {
+            const color1 = document.getElementById('multi_static_color_picker1').value;
+            const color2 = document.getElementById('multi_static_color_picker2').value;
+            const color3 = document.getElementById('multi_static_color_picker3').value;
+            const color4 = document.getElementById('multi_static_color_picker4').value;
+            fetch('/multi_static_color_selected', {
+                method: 'POST',
+                body: new URLSearchParams({ 'color1': color1, 'color2': color2, 'color3' : color3, 'color4' : color4 }),
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+            })
+                .then(response => response.text());
+        }
+
+        
     </script>
 </body>
 

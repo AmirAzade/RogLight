@@ -8,6 +8,23 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
 
+@app.route("/single_static_color_selected", methods=["POST"])
+def single_static_color_selected():
+    color = request.form["color"]
+    os.system("rogauracore single_static " + color[1:])
+    
+    return "Color selected"
+
+@app.route("/multi_static_color_selected", methods=["POST"])
+def multi_static_color_selected():
+    color1 = request.form["color1"]
+    color2 = request.form["color2"]
+    color3 = request.form["color3"]
+    color4 = request.form["color4"]
+    os.system("rogauracore multi_static " + color1[1:] + " " + color2[1:] + " " + color3[1:] + " " +color4[1:])
+    
+    return "Color selected"
+
 
 @app.route("/button/<int:button_id>")
 def button_click(button_id):
@@ -47,12 +64,12 @@ def radio_selected(option_number):
     return "Option selected"
 
 
-@app.route("/color", methods=["POST"])
-def color_selected():
-    color = request.form["color"]
-    os.system("rogauracore single_static " + color[1:])
+# @app.route("/color", methods=["POST"])
+# def color_selected():
+#     color = request.form["color"]
+#     os.system("rogauracore single_static " + color[1:])
     
-    return "Color selected"
+#     return "Color selected"
 
 
 if __name__ == "__main__":
